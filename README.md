@@ -31,6 +31,12 @@ API Contact management.
 
 ## Executando o projeto
 
+Clone o projeto utilizando o git
+
+```cl
+git clone https://github.com/lucasdzuc/contactsmanagement-api.git
+```
+
 Utilize o **yarn** ou o **npm install** para instalar as dependências do projeto.
 Em seguida, inicie o projeto.
 
@@ -40,9 +46,7 @@ yarn dev
 
 ## 📄 Licença
 
-<!-- Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes. -->
-
-Este projeto não pode ser reproduzido, distribuído ou modificado.
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
 
 <br />
 
