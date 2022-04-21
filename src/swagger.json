@@ -1,0 +1,123 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API CONTACT MANAGEMENT",
+    "description": "Api para gerencimanto de contatos",
+    "termsOfService": "http://localhost:3333/terms",
+    "contact": {
+      "email": "lucas_morais_an@hotmail.com"
+    },
+    "verion": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3333",
+      "description": "API de test"
+    },
+    {
+      "url": "https://contactsmanagement-backend-api.herokuapp.com/",
+      "description": "API de produção"
+    }
+  ],
+  "paths": {
+    "/contacts": {
+      "post": {
+        "summary": "Cadastro de contato",
+        "description": "Essa rota responsável por cadastrar um novo contato",
+        "tags": ["Contacts"],
+        "security": [{"bearerAuth": [] }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Contact"
+              },
+              "examples": {
+                "contact": {
+                  "value":{
+                    "name": "Kethilyn",
+                    "lastname": "Ferreia",
+                    "telephone": "00 98765-4321",
+                    "birthdate": "15/04/2022",
+                    "email": "kethelyn@gmail.com",
+                    "street": "Palace",
+                    "complement": "Casa",
+                    "district": "Centro",
+                    "city": "Recife",
+                    "uf": "PE",
+                    "user": "62573b8fb0494530aac646c6"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Failed create contact!"
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Contact"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Contact": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "lastname": {
+            "type": "string"
+          },
+          "telephone": {
+            "type": "string"
+          },
+          "birthdate": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "street": {
+            "type": "string"
+          },
+          "complement": {
+            "type": "string"
+          },
+          "district": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "uf": {
+            "type": "string"
+          },
+          "user": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "securitySchemes": {
+    "bearerAuth": {
+      "type": "http",
+      "scheme": "bearer",
+      "bearerFormat": "JWT"
+    }
+  }
+}

@@ -16,6 +16,11 @@ const sessionController = new SessionController();
 const userController = new UserController();
 const contactController = new ContactController();
 
+// ROOT ROUTE
+routes.get("/", (request, response) => {
+  return response.redirect("/api-docs");
+});
+
 // ROUTE SESSION
 routes.post('/sessions', sessionController.create);
 
