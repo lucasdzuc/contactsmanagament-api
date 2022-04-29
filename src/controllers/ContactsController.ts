@@ -61,7 +61,7 @@ class Contacts {
         district,
         city,
         uf,
-        user: userToken._id,
+        user: userToken.id,
       });
 
       return res.status(201).send({ contacts });

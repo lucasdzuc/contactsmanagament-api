@@ -17,10 +17,10 @@ const middlewaresJWT = function(req: Request, res: Response, next: NextFunction)
             } else {
                 const user = decoded;
 
-                const existUser = User.findById({ _id: user._id });
+                const existUser = User.findById({ _id: user.id });
 
                 if(!existUser) {
-                    return res.status(400).send({ message: 'Not allowed!' });
+                    return res.status(401).send({ message: 'Not allowed!' });
                 } 
 
                 request.decode = decoded;
