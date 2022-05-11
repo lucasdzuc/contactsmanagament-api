@@ -33,15 +33,31 @@ API Contact management.
 
 Clone o projeto utilizando o git
 
-```cl
-git clone https://github.com/lucasdzuc/contactsmanagement-api.git
+```bash
+$ git clone https://github.com/lucasdzuc/contactsmanagement-api.git
+```
+
+```bash
+$ cd contactsmanagement-api
+```
+
+Abra o projeto no VSCode utilizando o comando
+
+```bash
+$ code .
 ```
 
 Utilize o **yarn** ou o **npm install** para instalar as dependências do projeto.
 Em seguida, inicie o projeto.
 
-```cl
-yarn dev
+```bash
+$ yarn ou npm install
+```
+
+Para dar start no projeto utiliza o comando
+
+```bash
+$ yarn dev
 ```
 
 ## 📄 Licença
