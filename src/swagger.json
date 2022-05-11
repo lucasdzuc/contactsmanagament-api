@@ -20,6 +20,49 @@
     }
   ],
   "paths": {
+    "/sessions": {
+      "post": {
+        "summary": "Autenticação do usuário",
+        "description": "Essa rota é responsável para o usuário se autenticar na aplicação.",
+        "tags": ["Session"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "items": {
+                  "email": "lucas@gmail.com",
+                  "password": "123456"
+                }
+              },
+              "examples": {
+                "session": {
+                  "value":{
+                    "email": "lucas@gmail.com",
+                    "password": "123456"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Failed create session!"
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Session"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/contacts": {
       "get": {
         "summary": "Listagem de contatos do usuário",
@@ -219,6 +262,28 @@
   },
   "components": {
     "schemas": {
+      "Session": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "object"
+          },
+          "token": {
+            "type": "string"
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "_id": "string",
+          "name": "string",
+          "email": "string",
+          "createdAt": "tring",
+          "updatedAt": "tring",
+          "__v": "number"
+        }
+      },
       "Contact": {
         "type": "object",
         "properties": {
@@ -267,3 +332,4 @@
     }
   }
 }
+
