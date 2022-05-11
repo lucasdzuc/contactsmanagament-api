@@ -63,6 +63,51 @@
         }
       }
     },
+    "/user": {
+      "post": {
+        "summary": "Cadastro de usuário",
+        "description": "Essa rota é responsável por cadastrar um novo usuário.",
+        "tags": ["Users"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              },
+              "examples": {
+                "user": {
+                  "value":{
+                    "name": "Lucas",
+                    "lastname": "Knight",
+                    "email": "lucas@gmail.com",
+                    "password": "123456"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "401": {
+            "description": "User already exists!"
+          },
+          "400": {
+            "description": "Failed create user!"
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/contacts": {
       "get": {
         "summary": "Listagem de contatos do usuário",
@@ -276,12 +321,18 @@
       "User": {
         "type": "object",
         "properties": {
-          "_id": "string",
-          "name": "string",
-          "email": "string",
-          "createdAt": "tring",
-          "updatedAt": "tring",
-          "__v": "number"
+          "name": {
+            "type": "string"
+          },
+          "lastname": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
         }
       },
       "Contact": {

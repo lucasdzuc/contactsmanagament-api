@@ -39,7 +39,7 @@ class UserController {
             const { name, lastname, email, password } = request.body;
 
             if(await User.findOne({ email })){
-                return response.status(400).send({ error: 'User already exists!' });
+                return response.status(401).send({ error: 'User already exists!' });
             }
 
             const user = await User.create({ name, lastname, email, password});
@@ -47,7 +47,7 @@ class UserController {
             // user.password = undefined;
             return response.send({ user });
         } catch (err) {
-            return response.status(500).json({ err: 'Register failed!' });
+            return response.status(400).json({ err: 'Register failed!' });
         }
     }
 
